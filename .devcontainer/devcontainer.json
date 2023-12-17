@@ -1,8 +1,11 @@
 {
     "name": "C++ Development",
-    "image": "ubuntu",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
     "containerName": "C++_Development",
-    "settings": { 
+    "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
     "runArgs": [
@@ -10,5 +13,5 @@
         "--security-opt",
         "seccomp=unconfined"
     ],
-    "postCreateCommand": "apt-get update && apt-get install -y git ssh gcc g++ make cmake libboost-all-dev ninja-build"
+    "forwardPorts": [8080, 3000]
 }
